@@ -6,7 +6,7 @@ import java.util.Set;
 
 /**
  * Unspent Transaction Output Pool Class
- * Represents the current set of outstanding UTXO
+ * Represents the current set of UTXOs (inputs)
  */
 public class UTXOPool {
 
@@ -17,12 +17,12 @@ public class UTXOPool {
 
     /** Creates a new empty UTXOPool */
     public UTXOPool() {
-        H = new HashMap<UTXO, Transaction.Output>();
+        H = new HashMap<>();
     }
 
     /** Creates a new UTXOPool that is a copy of {@code uPool} */
-    public UTXOPool(UTXOPool uPool) {
-        H = new HashMap<UTXO, Transaction.Output>(uPool.H);
+    public UTXOPool(UTXOPool utxoPool) {
+        H = new HashMap<>(utxoPool.H);
     }
 
     /** Adds a mapping from UTXO {@code utxo} to transaction output @code{txOut} to the pool */
@@ -39,8 +39,8 @@ public class UTXOPool {
      * @return the transaction output corresponding to UTXO {@code utxo}, or null if {@code utxo} is
      *         not in the pool.
      */
-    public Transaction.Output getTxOutput(UTXO ut) {
-        return H.get(ut);
+    public Transaction.Output getTxOutput(UTXO utxo) {
+        return H.get(utxo);
     }
 
     /** @return true if UTXO {@code utxo} is in the pool and false otherwise */
@@ -51,10 +51,6 @@ public class UTXOPool {
     /** Returns an {@code ArrayList} of all UTXOs in the pool */
     public ArrayList<UTXO> getAllUTXO() {
         Set<UTXO> setUTXO = H.keySet();
-        ArrayList<UTXO> allUTXO = new ArrayList<UTXO>();
-        for (UTXO ut : setUTXO) {
-            allUTXO.add(ut);
-        }
-        return allUTXO;
+        return new ArrayList<>(setUTXO);
     }
 }

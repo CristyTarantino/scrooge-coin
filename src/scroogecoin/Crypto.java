@@ -9,6 +9,10 @@ import java.security.SignatureException;
 public class Crypto {
 
     /**
+     * The function verifySignature takes in a public key, the raw message, and the signature value of that raw message.
+     * With the three inputs, it can then verify if the signature corresponds to the public key and the message,
+     * and either validates or invalidates the transaction.
+     *
      * @return true is {@code signature} is a valid digital signature of {@code message} under the
      *         key {@code pubKey}. Internally, this uses RSA signature, but the student does not
      *         have to deal with any of the implementation details of the specific signature

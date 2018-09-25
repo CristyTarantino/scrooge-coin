@@ -3,7 +3,7 @@ package scroogecoin;
 import java.util.Arrays;
 
 /**
- * Unspent Transaction Output Class
+ * Unspent Transaction Output Class - input in the wallet
  */
 public class UTXO implements Comparable<UTXO> {
 

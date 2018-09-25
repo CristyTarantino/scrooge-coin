@@ -47,7 +47,9 @@ public class Transaction {
 
     /** hash of the transaction, its unique id */
     private byte[] hash;
+    /**  Input is the receiving of BTC (BitcCoin) **/
     private ArrayList<Input> inputs;
+    /** sending of BTC **/
     private ArrayList<Output> outputs;
 
     public Transaction() {
@@ -86,6 +88,11 @@ public class Transaction {
         }
     }
 
+    /**
+     *
+     * @param index
+     * @return raw data from the previous transaction
+     */
     public byte[] getRawDataToSign(int index) {
         // ith input and all outputs
         ArrayList<Byte> sigData = new ArrayList<Byte>();
